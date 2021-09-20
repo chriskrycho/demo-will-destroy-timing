@@ -1,5 +1,10 @@
-{{page-title "Hmm"}}
-
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+{{#let (track true) as |showToggle|}}
+  {{#if showToggle.value}}
+    <Hmm />
+  {{/if}}
+  <button
+    type='button'
+    {{on "click" (fn showToggle.update (not showToggle.value))}}>
+      Set it to {{not showToggle.value}}
+    </button>
+{{/let}}
